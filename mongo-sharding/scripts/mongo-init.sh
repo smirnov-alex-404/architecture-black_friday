@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# config_server
+config_server
 docker compose exec -T config_server mongosh --port 27019 --quiet <<EOF
 rs.initiate(
   {
@@ -11,10 +11,10 @@ rs.initiate(
     ]
   }
 )
-## exit()
+exit()
 EOF
 
-# shard_1
+shard_1
 
 docker compose exec -T shard_1 mongosh --port 27018 <<EOF
 rs.initiate(
@@ -25,10 +25,10 @@ rs.initiate(
       ]
     }
 )
-# exit()
+exit()
 EOF
 
-# shard_2
+shard_2
 docker compose exec -T shard_2 mongosh --port 27018 <<EOF
 rs.initiate(
     {
@@ -38,7 +38,7 @@ rs.initiate(
       ]
     }
   )
-# exit()
+exit()
 EOF
 
 docker compose exec -T mongos_router mongosh --port 27017 <<EOF
@@ -53,7 +53,7 @@ use somedb
 for(var i = 0; i < 1000; i++) db.helloDoc.insert({age:i, name:"ly"+i})
 
 db.helloDoc.countDocuments()
-# exit()
+exit()
 EOF
 
 echo shard_1 count documents
