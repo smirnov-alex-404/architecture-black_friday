@@ -22,8 +22,8 @@ rs.initiate(
       _id : "shard_1",
       members: [
         { _id : 0, host : "shard_1_repl_1:27018" },
-        { _id : 0, host : "shard_1_repl_2:27018" },
-        { _id : 0, host : "shard_1_repl_3:27018" }
+        { _id : 1, host : "shard_1_repl_2:27018" },
+        { _id : 2, host : "shard_1_repl_3:27018" }
       ]
     }
 )
@@ -36,9 +36,9 @@ rs.initiate(
     {
       _id : "shard_2",
       members: [
-        { _id : 1, host : "shard_2_repl_1:27018" },
+        { _id : 0, host : "shard_2_repl_1:27018" },
         { _id : 1, host : "shard_2_repl_2:27018" },
-        { _id : 1, host : "shard_2_repl_3:27018" }
+        { _id : 2, host : "shard_2_repl_3:27018" }
       ]
     }
   )
