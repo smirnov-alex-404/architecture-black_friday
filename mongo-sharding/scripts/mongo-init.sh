@@ -16,7 +16,7 @@ EOF
 
 shard_1
 
-docker compose exec -T shard_1 mongosh --port 27018 <<EOF
+docker compose exec -T shard_1 mongosh --port 27018 --quiet <<EOF
 rs.initiate(
     {
       _id : "shard_1",
@@ -29,7 +29,7 @@ exit()
 EOF
 
 shard_2
-docker compose exec -T shard_2 mongosh --port 27018 <<EOF
+docker compose exec -T shard_2 mongosh --port 27018 --quiet <<EOF
 rs.initiate(
     {
       _id : "shard_2",
@@ -41,7 +41,7 @@ rs.initiate(
 exit()
 EOF
 
-docker compose exec -T mongos_router mongosh --port 27017 <<EOF
+docker compose exec -T mongos_router mongosh --port 27017 --quiet <<EOF
 sh.addShard( "shard_1/shard_1:27018")
 sh.addShard( "shard_2/shard_2:27018")
 
@@ -57,13 +57,13 @@ exit()
 EOF
 
 echo shard_1 count documents
-docker compose exec -T shard_1 mongosh --port 27018 <<EOF
+docker compose exec -T shard_1 mongosh --port 27018 --quiet <<EOF
 db = db.getSiblingDB('somedb')
 print('shard_1: ' + db.helloDoc.countDocuments())
 EOF
 
 echo shard_2 count documents
-docker compose exec -T shard_2 mongosh --port 27018 <<EOF
+docker compose exec -T shard_2 mongosh --port 27018 --quiet <<EOF
 db = db.getSiblingDB('somedb')
 print('shard_2: ' + db.helloDoc.countDocuments())
 EOF
