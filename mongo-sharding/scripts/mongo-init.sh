@@ -1,6 +1,6 @@
 #!/bin/bash
 
-config_server
+echo config_server
 docker compose exec -T config_server mongosh --port 27019 --quiet <<EOF
 rs.initiate(
   {
@@ -14,7 +14,7 @@ rs.initiate(
 exit()
 EOF
 
-shard_1
+echo shard_1
 
 docker compose exec -T shard_1 mongosh --port 27018 --quiet <<EOF
 rs.initiate(
@@ -28,7 +28,7 @@ rs.initiate(
 exit()
 EOF
 
-shard_2
+echo shard_2
 docker compose exec -T shard_2 mongosh --port 27018 --quiet <<EOF
 rs.initiate(
     {
