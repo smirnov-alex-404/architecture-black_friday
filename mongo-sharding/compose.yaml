@@ -52,8 +52,8 @@ services:
     restart: always
     networks:
       - app-network
-    ports:
-      - "27017:27017"
+    # ports:
+    #   - "27017:27017"
     command: mongos --configdb config_server/config_server:27019 --bind_ip_all --port 27017
     healthcheck:
       test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
