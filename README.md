@@ -1,5 +1,8 @@
 # pymongo-api
 
+
+![diagram.png](diagrams/diagram.png)
+
 ## Как запустить
 
 Запускаем mongodb и приложение
