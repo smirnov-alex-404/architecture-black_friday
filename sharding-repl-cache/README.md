@@ -37,3 +37,8 @@ curl --silent http://ifconfig.me
 ## Кеширование (Redis)
 
 Второй и последующие вызовы эндпоинта /<collection_name>/users выполняются <1000мс
+
+![shard-repl-cache.jpg](img/shard-repl-cache.jpg)
+
+![shard-repl-cache-api.jpg](img/shard-repl-cache-api.jpg)
+
