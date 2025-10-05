@@ -14,6 +14,8 @@ docker compose up -d
 ./scripts/mongo-init.sh
 ```
 
+![shard_repl_script_output.jpg](img/shard_repl_script_output.jpg)
+
 ## Как проверить
 
 ### Если вы запускаете проект на локальной машине
@@ -33,3 +35,5 @@ curl --silent http://ifconfig.me
 ## Доступные эндпоинты
 
 Список доступных эндпоинтов, swagger http://<ip виртуальной машины>:8080/docs
+
+![shard-repl-api.jpg](img/shard-repl-api.jpg)
