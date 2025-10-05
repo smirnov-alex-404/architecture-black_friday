@@ -1,11 +1,19 @@
 # pymongo-api
 
+## Diagram
+
+[drawio diagram](diagrams/diagram.drawio)
+
 
 ![diagram.png](diagrams/diagram.png)
 
 ## Как запустить
 
-Запускаем mongodb и приложение
+Запускаем итоговую версию mongodb и приложение
+
+```shell
+cd sharding-repl-cache
+```
 
 ```shell
 docker compose up -d
@@ -16,6 +24,8 @@ docker compose up -d
 ```shell
 ./scripts/mongo-init.sh
 ```
+
+![shard_repl_script_output.jpg](mongo-sharding-repl/img/shard_repl_script_output.jpg)
 
 ## Как проверить
 
@@ -33,6 +43,12 @@ curl --silent http://ifconfig.me
 
 Откройте в браузере http://<ip виртуальной машины>:8080
 
+![shard-repl-cache-api.jpg](sharding-repl-cache/img/shard-repl-cache-api.jpg)
+
 ## Доступные эндпоинты
 
 Список доступных эндпоинтов, swagger http://<ip виртуальной машины>:8080/docs
+
+Второй и последующие вызовы эндпоинта /<collection_name>/users выполняются <1000мс
+
+![shard-repl-cache.jpg](sharding-repl-cache/img/shard-repl-cache.jpg)
